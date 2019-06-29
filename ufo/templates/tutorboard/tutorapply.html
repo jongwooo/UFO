@@ -2,16 +2,24 @@
 {% load static %}
 
 {% block contents %}
-<h1>{{tutorApply.title}}</h1>
-<p>{{tutorApply.content}}</p>
-{%if tutorApply.image%}
-<img src="{{tutorApply.image.url}}" alt="사진" height=300>
-{% endif %}
-<p>{{tutorApply.created_at}}</p>
+
+<div class="jumbotron" style="align-content: center;text-align: center" style="font-family: 'YunTaemin', sans-serif;">
+    <h1 class="display-4" style="font-family: 'YunTaemin', sans-serif;">{{tutorApply.title}}</h1>
+    <hr class="my-4">
+    {%if tutorApply.image%}
+    <img src="{{tutorApply.image.url}}" alt="사진" height=300>
+    {% endif %}
+    <p class="lead" style="font-family: 'YunTaemin', sans-serif;">{{tutorApply.content}}</p>
+    <p>{{tutorApply.created_at}}</p>
 {% if tutorApply.author == user %}
-    <a href="{% url 'tutorapplyedit' tutorApply.pk %}">수정</a>
-    <a href="{% url 'tutorapplyremove' tutorApply.pk %}">삭제</a>
+    <a href="{% url 'tutorapplyedit' tutorApply.pk %}" style="font-family: 'YunTaemin', sans-serif;">수정</a>
+    <a href="{% url 'tutorapplyremove' tutorApply.pk %}" style="font-family: 'YunTaemin', sans-serif;">삭제</a>
+    <br>
 {% else %}
-<p>글 수정 권한이 없습니다.</p>
+<p style="font-family: 'YunTaemin', sans-serif;">글 수정 권한이 없습니다.</p>
 {% endif %}
-{% endblock %}
+<br>
+<button type="button" class="btn btn-warning"><a href="{% url 'tutors' %}">뒤로가기</a></button>
+</div>
+
+  {% endblock %}
