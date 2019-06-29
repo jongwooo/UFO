@@ -29,7 +29,7 @@ def login(request):
             return redirect('home')
         else:
             #회원정보가 존재하지 않는다면, 에러인자와 함께 login 템플릿으로 돌아가기.
-            return render(request, 'login.html', {'error': 'username or password is incorrect.'})
+            return render(request, 'accounts/login.html', {'error': 'username or password is incorrect.'})
     else:
         return render(request, 'accounts/login.html')
 
