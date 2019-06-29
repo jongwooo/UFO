@@ -10,6 +10,4 @@ urlpatterns = [
     path('', page.views.home, name='home'),
     path('accounts/', include('accounts.urls')),
     path('tutorboard/', include('tutorboard.urls')),
-    # path('signup/', page.views.signup, name='signup'),
-    # path('login/', page.views.login, name='login'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
