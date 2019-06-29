@@ -1,0 +1,12 @@
+header.masthead {
+  text-align: center;
+  color: white;
+  background-image: url("../images/header-bg.png");
+  height:400px;
+}
+
+.typing {
+  line-height: 400px;
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size:30px;
+}
