@@ -1,25 +1,105 @@
 {% extends 'page/base.html' %}
-{% load static %}
 
 {% block contents %}
-<div class="container" style="padding-top:100px; ">
-    {% if error %}
-    {{error}}
-    {%endif%}
-    <h1>Login</h1>
-    <form method="POST" action="{% url 'login' %}">
-      {% csrf_token %}
-        Username:
-        <br>
-        <input name="username" type="text" value="">
-        <br>
-        Password:
-        <br>
-        <input name="password" type="password" value="">
-        <br>
-        <br>
-        <input class="btn btn-primary" type="submit" value="Login">
-    </form>
-</div>
+{% load staticfiles %}
 
+<!--===============================================================================================-->	
+<link rel="icon" type="image/png" href="{% static 'account/images/icons/favicon.ico' %}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'account/vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'account/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'account/fonts/iconic/css/material-design-iconic-font.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'account/vendor/animate/animate.css' %}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{% static 'account/vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'account/vendor/animsition/css/animsition.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'account/vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{% static 'account/vendor/daterangepicker/daterangepicker.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'account/css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'account/css/main.css' %}">
+<!--===============================================================================================-->
+  
+	<div class="limiter" style="margin">
+		<div class="container-login100">
+			<div class="wrap-login100 p-t-85 p-b-20">
+				<form class="login100-form validate-form" method="POST" action="{% url 'login' %}">
+					<span class="login100-form-title p-b-70">
+						Welcome to UFO
+					</span>
+					<span class="text-center">
+						<a href="{% url 'home' %}"><img src="{% static 'account/images/rocket.png' %}" alt="UFO" width="110" height="110" style="margin-left: 140px;"></a>
+					</span>
+					{% if error %}
+					{{error}}
+					{% endif %}
+					{% csrf_token %}
+						<div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter username">
+							<input class="input100" type="text" name="username">
+							<span class="focus-input100" data-placeholder="Username"></span>
+						</div>
+
+						<div class="wrap-input100 validate-input m-b-50" data-validate="Enter password">
+							<input class="input100" type="password" name="password">
+							<span class="focus-input100" data-placeholder="Password"></span>
+						</div>
+
+						<div class="container-login100-form-btn">
+							<button class="login100-form-btn" style="color:white;background:lightcoral" type="submit">
+								Login
+							</button>
+						</div>
+					</form>
+
+						<ul class="login-more p-t-190">
+							<li class="m-b-8">
+								<span class="txt1">
+									Forgot
+								</span>
+							<a href="#" class="txt2" style="color: lightcoral">
+								Username / Password?
+							</a>
+						</li>
+
+						<li>
+							<span class="txt1" >
+								Don’t have an account?
+							</span>
+
+							<a href="{% url 'signup' %}" class="txt2" style="color: lightcoral">
+								Sign up
+							</a>
+						</li>
+					</ul>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+	<script src="{% static 'account/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'account/vendor/animsition/js/animsition.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'account/vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'account/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'account/vendor/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'account/vendor/daterangepicker/moment.min.js' %}"></script>
+	<script src="{% static 'account/vendor/daterangepicker/daterangepicker.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'account/vendor/countdowntime/countdowntime.js' %}"></script>
+<!--===============================================================================================-->
+  <script src="{% static 'account/js/main.js' %}"></script>
+  
 {% endblock %}

@@ -1,8 +1,17 @@
 {% extends 'page/base.html' %}
-{% load staticfiles %}
+{% load static %}
 
 {% block contents %}
-        <a class="nav-link" href="{% url 'tutees' %}">튜팅 요청 게시판</a>
-          <a class="nav-link" href="{% url 'tutors' %}">튜터 신청 게시판</a>
-    
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<script src="https://www.cssscript.com/demo/simple-typewriter-effect-pure-javascript-typewriterjs/typewriter.js"></script>
+
+<header class="masthead">
+  <div class="container-fluid">
+    <p class="typing" id="typing"></p>
+  </div>
+</header>
+<a class="nav-link" href="{% url 'tutees' %}">튜팅 요청 게시판</a>
+<a class="nav-link" href="{% url 'tutors' %}">튜터 신청 게시판</a>
+<script src="{% static 'js/typing.js' %}"></script>
 {% endblock %}

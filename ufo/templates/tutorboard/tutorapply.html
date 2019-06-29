@@ -1,0 +1,17 @@
+{% extends 'page/base.html' %}
+{% load static %}
+
+{% block contents %}
+<h1>{{tutorApply.title}}</h1>
+<p>{{tutorApply.content}}</p>
+{%if tutorApply.image%}
+<img src="{{tutorApply.image.url}}" alt="사진" height=300>
+{% endif %}
+<p>{{tutorApply.created_at}}</p>
+{% if tutorApply.author == user %}
+    <a href="{% url 'tutorapplyedit' tutorApply.pk %}">수정</a>
+    <a href="{% url 'tutorapplyremove' tutorApply.pk %}">삭제</a>
+{% else %}
+<p>글 수정 권한이 없습니다.</p>
+{% endif %}
+{% endblock %}
