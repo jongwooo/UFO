@@ -2,17 +2,25 @@
 {% load static %}
 
 {% block contents %}
-<div class="pt-5">
+<div class="container pt-5">
   <a href="{% url 'newtutorrequest' %}">새 글쓰기</a>
+  <div class="row">
   {% for tutorRequest in tutorRequests %}
-  <h1>{{tutorRequest.title}}</h1>
-  <h2>{{tutorRequest.summary}}</h2>
-  <p>{{tutorRequest.created_at}}</p>
-  <a href="{% url 'tutorrequest' tutorRequest.pk %}">더보기</a>
-  {% if tutorRequest.image %}
-  <img src="{{tutorRequest.image.url}}" height=200 alt="사진">
-  {% endif %}
+    <div class="card col-md-4" style="padding-bottom:20px;">
+      <div class="card-body">
+        {% if tutorRequest.image %}
+        <img class="card-img-top" src="{{tutorRequest.image.url}}" alt="사진">
+        <hr>
+        {% endif %}
+        <h4>{{tutorRequest.title}}</h4>
+        <span>{{tutorRequest.summary}}</span>
+        <br>
+        <small style="color:gray;">{{tutorRequest.created_at}}</small>
+        <p class="text-right"><a href="{% url 'tutorrequest' tutorRequest.pk %}" class="btn btn-default">더보기</a></p>
+      </div>
+    </div>
   {% endfor %}
+  </div>
 
   {% if tutee_page.has_previous %}
   <a href="?page=1" class="btn btn-secondary">First</a>
@@ -22,7 +30,6 @@
   <a href="?page={{tutee_page.next_page_number}}" class="btn btn-secondary">Next</a>
   <a href="?page={{tutee_page.paginator.num_pages}}" class="btn btn-secondary">Last</a>
   {% endif %}
-
   <br>
   <center>
     <span>{{tutee_page.number}}</span>
