@@ -25,6 +25,7 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 
 <body>
@@ -59,7 +60,7 @@
   <br>
   {% block contents %}
   {% endblock %}
-  <footer>
+  <footer class="fixed-bottom" style="background-color:white;">
     <hr>
     <p style="font-family: 'YunTaemin', sans-serif;font-size:20px;color:gray;text-align:center;">Copyright (c) 2019 LikeOwl UFO Team</p>
   </footer>
