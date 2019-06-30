@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator
+from django.contrib.auth.models import User
+from django.contrib import auth
 from .models import TutorApply, TutorRequest, TutorComment, TuteeComment
 from .forms import TutorApplyForm, TutorRequestForm, CommentForm, CommentForm2
 
@@ -106,7 +108,7 @@ def tutorComment(request, tutorrequest_id):
         form = CommentForm()
         return render(request, 'tutorboard/tutorrequest.html', {'form': form, 'tutorRequest': post})
 
-# 튜티가 쓴 글에 대해 댓글 남기기 
+# 튜티가 쓴 글에 대해 댓글 남기기
 def tuteeComment(request, tutorapply_id):
     post = get_object_or_404(TutorApply, pk=tutorapply_id)
     if request.method == 'POST':

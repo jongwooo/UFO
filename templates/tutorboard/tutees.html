@@ -3,7 +3,9 @@
 
 {% block contents %}
 <div class="container pt-5">
+  {% if user.is_authenticated %}
   <a href="{% url 'newtutorrequest' %}">새 글쓰기</a>
+  {% endif %}
 
   <div class="row">
     {% for tutorRequest in tutorRequests %}
