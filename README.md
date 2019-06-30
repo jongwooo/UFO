@@ -15,7 +15,7 @@
 
 ##### 2019 LikeOwl 신촌 해커톤
 
-[Demo] [링크]()
+[Demo] [https://beta-ufo.herokuapp.com](https://beta-ufo.herokuapp.com)
 
 ##### 개발 범위
 
