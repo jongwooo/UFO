@@ -5,15 +5,23 @@
 <div class="pt-5">
   <a href="{% url 'newtutorapply' %}">새 글쓰기</a>
 
-  {% for tutorApply in tutorApplys %}
-  <h1>{{tutorApply.title}}</h1>
-  <h2>{{tutorApply.summary}}</h2>
-  <p>{{tutorApply.created_at}}</p>
-  {% if tutorApply.image %}
-  <img src="{{tutorApply.image.url}}" height=200 alt="사진">
-  {% endif%}
-  <a href="{% url 'tutorapply' tutorApply.pk %}">더보기</a>
-  {% endfor %}
+  <div class="row">
+    {% for tutorApply in tutorApplys %}
+    <div class="card col-md-4" style="padding-bottom:20ps;">
+      <div class="card-body">
+        {% if tutorApply.image %}
+        <img class="card-img-top src=" {{tutorApply.image.url}}" alt="사진">
+        <hr>
+        {% endif %}
+        <h4>{{tutorApply.title}}</h4>
+        <span>{{tutorApply.summary}}</span>
+        <br>
+        <small style="color:gray;">{{tutorApply.created_at}}</small>
+        <p class="text-right"><a href="{% url 'tutorapply' tutorApply.pk %}" class="btn btn-default">더보기</a></p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
 
   {% if tutor_page.has_previous %}
   <a href="?page=1" class="btn btn-secondary">First</a>
